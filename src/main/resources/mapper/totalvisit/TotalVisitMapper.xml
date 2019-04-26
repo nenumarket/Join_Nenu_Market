@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.nenujoin.demo.mapper.totalvisit.TotalVisitMapper">
+
+    <resultMap id="City" type="com.nenujoin.demo.entity.totalvisit.City">
+        <id property="id" column="id"/>
+        <result property="year" column="year"/>
+        <result property="cityName" column="city_name"/>
+        <result property="visitCount" column="visitCount"/>
+    </resultMap>
+
+<!--    <select id="listAll" resultMap="city">-->
+<!--        SELECT *-->
+<!--        FROM `t_totalvisit`-->
+<!--    </select>-->
+
+    <insert id="addCity">
+        INSERT INTO `t_totalvisit`
+        (city_name, visitCount)
+        VALUES (#{City.cityName}, #{City.visitCount})
+    </insert>
+
+</mapper>
